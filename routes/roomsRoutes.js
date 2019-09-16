@@ -9,7 +9,9 @@ routes.get('/allreservation',roomController.allreservations)
 
 // Delete Record
 
-routes.delete('/deleteReservation/',roomController.removereservation)
+routes.delete('/deleteReservation',roomController.removereservation)
+// update record
+routes.put('/update',roomController.updatereservation)
 
 
 module.exports =routes

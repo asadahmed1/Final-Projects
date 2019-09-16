@@ -112,6 +112,17 @@ export class DashboardComponent implements OnInit {
   }
 
   // Update Record
+  update(id:any){
+    const newReservation = {
+    id: id,
+    reserve:this.reservationForm.value
+}
+
+    this.roomreservation.updateReservation(newReservation)
+.subscribe (reser => {
+  this.reservation.push(reser)
+})
+}
 
 
   ngOnInit() {

@@ -55,11 +55,27 @@ const allreservations=(req,res)=>{
     })
   }
 
+  // Update User 
+    //update reservations
+    const updatereservation=(req,res)=>{
+      roomModel.findByIdAndUpdate(req.body.id,req.body.reserve,{new:true},(err,result)=>{
+        if(err){
+          res.send(err)
+        }else{
+          res.status(200).json({
+            message:"data updated succefully",
+            result
+          })
+        }
+      })
+    }
+
 // Exporting Modules
 
 module.exports={
     roomReservation,
     allreservations,
-    removereservation
+    removereservation,
+    updatereservation
 
 }
