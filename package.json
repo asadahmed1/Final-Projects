@@ -4,13 +4,10 @@
   "description": "MEAN stack authentication app",
   "main": "app.js",
   "scripts": {
-    "start": "node app",
-    "build": "next build"
+    "start": "node app"
+    
   },
-  "engines": {
-    "node": ">=v10.16.0",
-    "npm": ">=6.9.0"
-  },
+
   "dependencies": {
     "express": "4.16.2",
     "mongoose": "4.13.6",
