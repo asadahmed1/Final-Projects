@@ -1,0 +1,195 @@
+<div class="row">
+    <div class="col-4">
+        <div class="list-group" id="list-tab" role="tablist">
+            <a class="list-group-item list-group-item-action active" id="list-home-list" data-toggle="list"
+                href="#list-home" role="tab" aria-controls="home">Room Reservation</a>
+            <a class="list-group-item list-group-item-action" id="list-profile-list" data-toggle="list"
+                href="#list-profile" role="tab" aria-controls="profile">Profile</a>
+            <a class="list-group-item list-group-item-action" id="list-messages-list" data-toggle="list"
+                href="#list-messages" role="tab" aria-controls="messages">Messages</a>
+            <a class="list-group-item list-group-item-action" id="list-settings-list" data-toggle="list"
+                href="#list-settings" role="tab" aria-controls="settings">Settings</a>
+        </div>
+    </div>
+    <div class="col-8">
+        <div class="tab-content" id="nav-tabContent">
+            <div class="tab-pane fade show active" id="list-home" role="tabpanel" aria-labelledby="list-home-list">
+                <div class="container-fluid">
+                    <div class="container-fluid border-0 w-75 pt-5">
+                        <h1 class="text-center mb-3">Reservation Form</h1>
+                        <form [formGroup]="reservationForm " >
+                            <div class="row">
+                                <!-- Room Number -->
+
+
+
+
+                                <!-- Room No -->
+
+                                <div class="col-sm-3">
+                                    <label>Room No *</label>
+                                </div>
+                                <div class="col-sm-9">
+                                    <input type="text" formControlName='roomno' name='roomno' placeholder="Room No"
+                                        class="form-control bg-light border-0 w-75" />
+                                    <div class='pt-2'>
+                                        <span *ngIf="roomno.invalid && roomno.touched"
+                                            class=' alert text-danger m-0 p-0 '>
+                                            Room No is required.
+                                        </span>
+                                       
+                                    </div>
+                                </div>
+
+
+
+                                <!-- Room type -->
+
+                                <div class="col-sm-3 mt-3">
+                                    <label>Room Type</label>
+                                </div>
+                                <div class="col-sm-9 mt-3">
+                                    <select formControlName='roomtype' name="roomtype" class="form-control w-75">
+                                        <option>Select</option>
+                                        <option *ngFor="let room of rooms" value="{{room}}">{{room}}</option>
+                                    </select>
+                                    <div class='pt-2'>
+                                        <span *ngIf="roomtype.invalid && roomtype.errors && roomtype.touched"
+                                            class=' alert text-danger m-0 p-0 '>
+                                            roomtype is required.
+                                        </span>
+                                    </div>
+                                </div>
+
+                                <!-- Arrival Date -->
+
+                                <div class="col-sm-3 mt-3">
+                                    <label>Arrival Date *</label>
+                                </div>
+                                <div class="col-sm-9 mt-3">
+                                    <input type="text" formControlName='arrivalDate'
+                                        placeholder="DD/MM/YYYY or DD-MM-YYYY"
+                                        class="form-control bg-light border-0 w-75" />
+                                    <div class='pt-2'>
+                                        <span *ngIf="arrivalDate.invalid && arrivalDate.touched"
+                                            class=' alert text-danger m-0 p-0 '>
+                                            Date is required(DD/MM/YYYY or DD-MM-YYYY).
+                                        </span>
+                                    </div>
+                                </div>
+
+                                <!-- Departure Date -->
+
+                                <div class="col-sm-3 mt-3">
+                                    <label>Departure Date *</label>
+                                </div>
+                                <div class="col-sm-9 mt-3">
+                                    <input type="text" formControlName='departureDate'
+                                        placeholder="DD/MM/YYYY or DD-MM-YYYY"
+                                        class="form-control bg-light border-0 w-75" />
+                                    <div class='pt-2'>
+                                        <span *ngIf="departureDate.invalid && departureDate.touched"
+                                            class=' alert text-danger m-0 p-0 '>
+                                            Date is required(DD/MM/YYYY or DD-MM-YYYY).
+                                        </span>
+                                    </div>
+                                </div>
+
+
+
+
+
+                                <!-- Occupancy -->
+
+                                <div class="col-sm-3 mt-3">
+                                    <label>Number of Occupancy</label>
+                                </div>
+                                <div class="col-sm-9 mt-3">
+                                    <input type="text" formControlName="occupancy" placeholder="occupancy"
+                                        class="form-control bg-light border-0 w-75" name='flightno' />
+                                    <div class="pt-2">
+                                        <span *ngIf="occupancy.invalid && occupancy.touched"
+                                            class=' alert text-danger m-0 p-0 '>
+                                            Please enter number of occupancy.
+                                        </span>
+                                    </div>
+                                </div>
+
+                                <!-- Rate -->
+
+                                <div class="col-sm-3 mt-3">
+                                    <label>Rate</label>
+                                </div>
+                                <div class="col-sm-9 mt-3">
+                                    <input type="text" formControlName="rate" placeholder="rate"
+                                        class="form-control bg-light border-0 w-75" name='flightno' />
+                                    <div class="pt-2">
+                                        <span *ngIf="rate.invalid && rate.touched" class=' alert text-danger m-0 p-0 '>
+                                            Please enter rate of room.
+                                        </span>
+                                    </div>
+                                </div>
+
+
+                                <!-- Add new reservation button -->
+
+                                <div class="col-sm-10 mb-2">
+                                    <input type="submit" value="Submit" id="submit"
+                                        class="bg-primary  btn btn-primary pl-3 pr-3 pt-1 pb-1 float-right mr-3 mt-4 border-0"
+                                        [disabled]="reservationForm.invalid" (click)="addReservation()" />
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+                </div>
+                <div class="tab-pane fade" id="list-profile" role="tabpanel" aria-labelledby="list-profile-list">asad
+                </div>
+                <div class="tab-pane fade" id="list-messages" role="tabpanel" aria-labelledby="list-messages-list">...
+                </div>
+                <div class="tab-pane fade" id="list-settings" role="tabpanel" aria-labelledby="list-settings-list">...
+                </div>
+          
+        </div>
+    </div>
+
+</div>
+<div class="container-fluid">
+        <h1 class="text-center">
+                All Students
+              </h1>
+</div>
+
+<table class="w-100">
+  <thead>
+    <!-- Table Head -->
+    <th>roomno</th>
+    <th>roomtype</th>
+    <th>arrivalDate</th>
+    <th>departureDate</th>
+    <th>occupancy</th>
+    <th>rate</th>
+    
+
+  </thead>
+  <!-- Table Data -->
+  <tbody *ngFor="let student of reservation let i=index">
+
+    <td>{{student.roomno}}</td>
+    <td>{{student.roomtype}}</td>
+    <td>{{student.arrivalDate}}</td>
+    <td>{{student.departureDate}}</td>
+    <td>{{student.occupancy}}</td>
+    <td>{{student.rate}}</td>
+      <!-- Delete Button -->
+    <td>
+      <input type="button" class="btn-danger btn-sm" value="Delete" (click)='onDelete(student._id)'></td>
+
+      <!-- Edit Button -->
+        <td>
+      <input type="button" class="btn-info btn-sm" value="Edit" (click)='onEdit(i)'>
+    </td>
+
+    
+  </tbody>
+</table>
