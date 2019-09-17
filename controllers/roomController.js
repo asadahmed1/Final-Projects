@@ -63,7 +63,7 @@ const allreservations=(req,res)=>{
           res.send(err)
         }else{
           res.status(200).json({
-            message:"data updated succefully",
+
             result
           })
         }
